@@ -5,13 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MDK_01_01_PR_12"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Путешествуй по России" Height="450" Width="800" Icon="\Resources\logotip.png">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-        <TextBlock Text="Путешествуй по России" HorizontalAlignment="Center" FontSize="30" VerticalAlignment="Center" /> 
-        <Frame Name="frmLoad" Grid.Row="1"/>
+        <Frame Name="frmLoad"/>
     </Grid>
 </Window>

@@ -13,21 +13,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MDK_01_01_PR_12.Pages;
 
-namespace MDK_01_01_PR_12
+namespace MDK_01_01_PR_12.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для ToursPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ToursPage : Page
     {
-        public MainWindow()
+        public ToursPage()
         {
             InitializeComponent();
-            FrameLoad.frmMain = frmLoad;
-            DataBase.connect = new DataBaseEntities();
-            frmLoad.Navigate(new ToursPage());
+            lstTours.ItemsSource = DataBase.connect.Tour.ToList();
         }
     }
 }
