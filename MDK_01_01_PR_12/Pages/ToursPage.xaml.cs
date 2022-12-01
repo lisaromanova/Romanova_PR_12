@@ -24,13 +24,14 @@ namespace MDK_01_01_PR_12.Pages
         public ToursPage()
         {
             InitializeComponent();
-            lstTours.ItemsSource = DataBase.connect.Tour.ToList();
+            //lstTours.ItemsSource = DataBase.connect.Tour.ToList();
             cbType.Items.Add("Все типы");
             List<Type> types = DataBase.connect.Type.ToList();
             foreach(Type type in types)
             {
                 cbType.Items.Add(type.Name);
             }
+            Filter();
         }
 
         void Filter()
@@ -43,13 +44,31 @@ namespace MDK_01_01_PR_12.Pages
             }
             if (!string.IsNullOrWhiteSpace(tbSearch.Text))
             {
-                tours = tours.Where(x => x.Name.ToLower().Contains(tbSearch.Text.ToLower()) || x.Description.ToLower().Contains(tbSearch.Text.ToLower())).ToList();
+                tours = tours.Where(x => x.Name.ToLower().Contains(tbSearch.Text.ToLower()) || (x.Description!=null&&x.Description.ToLower().Contains(tbSearch.Text.ToLower()))).ToList();
             }
             if ((bool)chbActual.IsChecked)
             {
                 tours = tours.Where(x => x.IsActual == true).ToList();
             }
+            if (cbSort.SelectedIndex != -1)
+            {
+                switch (cbSort.SelectedIndex)
+                {
+                    case 1:
+                        tours = tours.OrderBy(x => x.Price).ToList();
+                        break;
+                    case 2:
+                        tours = tours.OrderByDescending(x => x.Price).ToList();
+                        break;
+                }
+            }
             lstTours.ItemsSource = tours;
+            double sum = 0;
+            foreach(Tour tour in tours)
+            {
+                sum += Convert.ToDouble(tour.Price) * tour.TicketCount;
+            }
+            tbCount.Text = "Общая стоимость: " + sum.ToString();
         }
 
         private void cbType_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -65,6 +84,11 @@ namespace MDK_01_01_PR_12.Pages
         private void chbActual_Checked(object sender, RoutedEventArgs e)
         {
             Filter();
+        }
+
+        private void btnHotels_Click(object sender, RoutedEventArgs e)
+        {
+            FrameLoad.frmMain.Navigate(new HotelsPage());
         }
     }
 }
