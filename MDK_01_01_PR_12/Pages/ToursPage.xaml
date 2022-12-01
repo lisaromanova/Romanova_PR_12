@@ -18,15 +18,15 @@
         <StackPanel Grid.Row="0" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Right">
                 <TextBlock Text="Введите текст для поиска: " VerticalAlignment="Center" Margin="0,0,10,0"/>
-                <TextBox Name="tbSearch" Width="200" Height="25"/>
+                <TextBox Name="tbSearch" Width="200" Height="25" TextChanged="tbSearch_TextChanged"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,10">
                 <TextBlock Text="Выберите тип: " VerticalAlignment="Center" Margin="0,0,10,0"/>
-                <ComboBox Name="cbType" Width="200" Height="25" IsEditable="True" IsReadOnly="True"/>
+                <ComboBox Name="cbType" Width="200" Height="25" IsEditable="True" IsReadOnly="True" SelectionChanged="cbType_SelectionChanged"/>
             </StackPanel>
-            <CheckBox Name="chbActual" HorizontalAlignment="Right">Только актуальные туры</CheckBox>
+            <CheckBox Name="chbActual" HorizontalAlignment="Right" Checked="chbActual_Checked" Unchecked="chbActual_Checked">только актуальные туры</CheckBox>
         </StackPanel>
-        <ListView Grid.Row="1" Name="lstTours" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListView Grid.Row="1" Name="lstTours" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Center">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel/>
@@ -35,10 +35,14 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Black" BorderThickness="1">
-                        <StackPanel Margin="5" Width="200" Height="200">
-                            <TextBlock HorizontalAlignment="Center" FontSize="16" Text="{Binding Name}" TextWrapping="Wrap" TextAlignment="Center"/>
-                            <Image Width="150" Height="150" Source="{Binding ImagePreview, TargetNullValue={StaticResource noImage}}"/>
+                        <StackPanel Margin="10" Width="300">
+                            <TextBlock HorizontalAlignment="Center" FontSize="20" Text="{Binding Name}" TextWrapping="Wrap" TextAlignment="Center"/>
+                            <Image Height="150" Source="{Binding ImagePreview, TargetNullValue={StaticResource noImage}}" Margin="0,10,0,10"/>
                             <TextBlock Text="{Binding PriceRub}" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20"/>
+                            <DockPanel Margin="0,10,0,0">
+                            <TextBlock Text="{Binding ActualString}" HorizontalAlignment="Left" Foreground="{Binding ActualColor}"/>
+                                <TextBlock Text="{Binding TicketCount, StringFormat={}Билетов: {0}}" HorizontalAlignment="Right"/>
+                            </DockPanel>
                         </StackPanel>
                     </Border>
                 </DataTemplate>

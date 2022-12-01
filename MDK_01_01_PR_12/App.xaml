@@ -6,6 +6,7 @@
     <Application.Resources>
         <Style TargetType="TextBlock">
            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="FontSize" Value="16"/>
         </Style>
     </Application.Resources>
 </Application>
