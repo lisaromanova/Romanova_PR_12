@@ -21,10 +21,23 @@ namespace MDK_01_01_PR_12.Pages
     /// </summary>
     public partial class HotelsPage : Page
     {
+        PaginationClass paginationClass = new PaginationClass();
         public HotelsPage()
         {
             InitializeComponent();
             lstHotels.ItemsSource = DataBase.connect.Hotel.ToList();
+            paginationClass.CountPage = 10;
+            DataContext = paginationClass;
+        }
+
+        private void Page_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            FrameLoad.frmMain.Navigate(new ToursPage());
         }
     }
 }

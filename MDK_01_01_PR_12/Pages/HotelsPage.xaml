@@ -8,15 +8,46 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="HotelsPage">
 
-    <Grid>
-        <ListView Name="lstHotels">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <ListView Name="lstHotels" Grid.Row="0">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Name}">Название</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding CountOfStars}">Количество звезд</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Country.Name}">Страна</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding ToursHotel}">Количество туров</GridViewColumn>
+                    <GridViewColumn>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Uid="{Binding Id}" Content="Изменить"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Grid.Row="1" Width="110" Height="40" Name="btnBack" Content="Вернуться" HorizontalAlignment="Left" Click="btnBack_Click"/>
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock Style="{StaticResource txtPage}" Uid="first" Text="&lt;|" MouseDown="Page_MouseDown" Cursor="Hand"/>
+            <TextBlock Style="{StaticResource txtPage}" Uid="back" Text="&lt;" MouseDown="Page_MouseDown"/>
+            <TextBlock Style="{StaticResource txtPage}" Uid="1" Text="{Binding Path=NPage[0]}" Visibility="{Binding Path=Visibility[0]}" FontWeight="{Binding Path=Bold[0]}" MouseDown="Page_MouseDown" Cursor="Hand"/>
+            <TextBlock Style="{StaticResource txtPage}" Uid="2" Text="{Binding Path=NPage[1]}" Visibility="{Binding Path=Visibility[1]}" FontWeight="{Binding Path=Bold[1]}" MouseDown="Page_MouseDown"/>
+            <TextBlock Style="{StaticResource txtPage}" Uid="3" Text="{Binding Path=NPage[2]}" Visibility="{Binding Path=Visibility[2]}" FontWeight="{Binding Path=Bold[2]}" MouseDown="Page_MouseDown"/>
+            <TextBlock Style="{StaticResource txtPage}" Uid="4" Text="{Binding Path=NPage[3]}" Visibility="{Binding Path=Visibility[3]}" FontWeight="{Binding Path=Bold[3]}" MouseDown="Page_MouseDown"/>
+            <TextBlock Style="{StaticResource txtPage}" Uid="5" Text="{Binding Path=NPage[4]}" Visibility="{Binding Path=Visibility[4]}" FontWeight="{Binding Path=Bold[4]}" MouseDown="Page_MouseDown"/>
+            <TextBlock Style="{StaticResource txtPage}" Uid="next" Text="&gt;" MouseDown="Page_MouseDown"/>
+            <TextBlock Style="{StaticResource txtPage}" Uid="last" Text="|&gt;" MouseDown="Page_MouseDown"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextBlock Margin="0,0,15,0">
+                Количество записей<LineBreak/>
+                на странице:
+            </TextBlock>
+            <TextBox Name="tbPages" Width="100" Height="30"/>
+        </StackPanel>
     </Grid>
 </Page>

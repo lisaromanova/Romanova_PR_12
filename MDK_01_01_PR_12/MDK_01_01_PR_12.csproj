@@ -64,6 +64,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\HotelPartialClass.cs" />
+    <Compile Include="Classes\PaginationClass.cs" />
     <Compile Include="Classes\TourPartialClass.cs" />
     <Compile Include="Country.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>

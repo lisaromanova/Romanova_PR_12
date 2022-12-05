@@ -54,10 +54,10 @@ namespace MDK_01_01_PR_12.Pages
             {
                 switch (cbSort.SelectedIndex)
                 {
-                    case 1:
+                    case 0:
                         tours = tours.OrderBy(x => x.Price).ToList();
                         break;
-                    case 2:
+                    case 1:
                         tours = tours.OrderByDescending(x => x.Price).ToList();
                         break;
                 }

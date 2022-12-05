@@ -10,34 +10,37 @@
     <Page.Resources>
         <BitmapImage x:Key="noImage" UriSource="\Resources\picture.png"/>
     </Page.Resources>
-    <Grid>
+    <Grid Margin="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="130"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="55"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" HorizontalAlignment="Center" Orientation="Horizontal">
-            <StackPanel HorizontalAlignment="Left" Margin="0,0,10,0">
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Right">
-                    <TextBlock Text="Введите текст для поиска: " VerticalAlignment="Center" Margin="0,0,10,0"/>
-                    <TextBox Name="tbSearch" Width="200" Height="25" TextChanged="tbSearch_TextChanged"/>
+        <StackPanel>
+            <TextBlock Name="tbCount" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+            <StackPanel Grid.Row="0" HorizontalAlignment="Center" Orientation="Horizontal">
+                <StackPanel HorizontalAlignment="Left" Margin="0,0,10,0">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Right">
+                        <TextBlock Text="Введите текст для поиска: " VerticalAlignment="Center" Margin="0,0,10,0"/>
+                        <TextBox Name="tbSearch" Width="200" Height="25" TextChanged="tbSearch_TextChanged"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,10">
+                        <TextBlock Text="Выберите тип: " VerticalAlignment="Center" Margin="0,0,10,0"/>
+                        <ComboBox Name="cbType" Width="200" Height="25" IsEditable="True" IsReadOnly="True" SelectionChanged="cbType_SelectionChanged"/>
+                    </StackPanel>
+                    <CheckBox Name="chbActual" HorizontalAlignment="Right" Checked="chbActual_Checked" Unchecked="chbActual_Checked">только актуальные туры</CheckBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,10">
-                    <TextBlock Text="Выберите тип: " VerticalAlignment="Center" Margin="0,0,10,0"/>
-                    <ComboBox Name="cbType" Width="200" Height="25" IsEditable="True" IsReadOnly="True" SelectionChanged="cbType_SelectionChanged"/>
-                </StackPanel>
-                <CheckBox Name="chbActual" HorizontalAlignment="Right" Checked="chbActual_Checked" Unchecked="chbActual_Checked">только актуальные туры</CheckBox>
-            </StackPanel>
-            <StackPanel VerticalAlignment="Bottom" Margin="10,0,0,0">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,10">
-                    <TextBlock Margin="0,0,10,0">
+                <StackPanel VerticalAlignment="Center" Margin="10,0,0,0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,10">
+                        <TextBlock Margin="0,0,10,0">
                         Сортировать по <LineBreak/>
                         стоимости тура
-                    </TextBlock>
-                    <ComboBox Name="cbSort" Width="200" Height="25" IsEditable="True" IsReadOnly="True" SelectionChanged="cbType_SelectionChanged">
-                        <ComboBoxItem>Возрастанию</ComboBoxItem>
-                        <ComboBoxItem>Убыванию</ComboBoxItem>
-                    </ComboBox>
+                        </TextBlock>
+                        <ComboBox Name="cbSort" Width="200" Height="25" IsEditable="True" IsReadOnly="True" SelectionChanged="cbType_SelectionChanged">
+                            <ComboBoxItem>Возрастанию</ComboBoxItem>
+                            <ComboBoxItem>Убыванию</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
@@ -63,7 +66,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBlock Name="tbCount" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+       
         <Button Grid.Row="2" Name="btnHotels" Click="btnHotels_Click" Content="Таблица отелей" Width="200" Height="40"/>
     </Grid>
 </Page>

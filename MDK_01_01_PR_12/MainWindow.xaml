@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MDK_01_01_PR_12"
         mc:Ignorable="d"
-        Title="Путешествуй по России" Height="600" Width="1040" Icon="\Resources\logotip.png">
+        Title="Путешествуй по России" Height="600" Width="1060" Icon="\Resources\logotip.png">
     <Grid>
-        <Frame Name="frmLoad"/>
+        <Frame Name="frmLoad" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
