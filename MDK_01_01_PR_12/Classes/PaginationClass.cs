@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MDK_01_01_PR_12.Classes
 {
-    internal class PaginationClass
+    internal class PaginationClass: INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;  //событие, для изменения значения одного из массивов свойств, описанных ниже
         static int countitems = 5; //количество объектов для отображения (1 2 3 4 5)

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace MDK_01_01_PR_12
 {
@@ -43,6 +45,21 @@ namespace MDK_01_01_PR_12
                 else
                 {
                     return Brushes.Red;
+                }
+            }
+        }
+
+        public BitmapImage Photos
+        {
+            get
+            {
+                if (ImagePreview != null)
+                {
+                    return new BitmapImage(new Uri(Environment.CurrentDirectory + ImagePreview, UriKind.RelativeOrAbsolute)); 
+                }
+                else
+                {
+                    return new BitmapImage(new Uri("\\Resources\\picture.png", UriKind.RelativeOrAbsolute));
                 }
             }
         }

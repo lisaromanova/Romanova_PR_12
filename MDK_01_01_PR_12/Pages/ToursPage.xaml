@@ -7,9 +7,6 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ToursPage">
-    <Page.Resources>
-        <BitmapImage x:Key="noImage" UriSource="\Resources\picture.png"/>
-    </Page.Resources>
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="130"/>
@@ -22,11 +19,11 @@
                 <StackPanel HorizontalAlignment="Left" Margin="0,0,10,0">
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Right">
                         <TextBlock Text="Введите текст для поиска: " VerticalAlignment="Center" Margin="0,0,10,0"/>
-                        <TextBox Name="tbSearch" Width="200" Height="25" TextChanged="tbSearch_TextChanged"/>
+                        <TextBox Name="tbSearch" Width="200" Height="30" TextChanged="tbSearch_TextChanged"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,10">
                         <TextBlock Text="Выберите тип: " VerticalAlignment="Center" Margin="0,0,10,0"/>
-                        <ComboBox Name="cbType" Width="200" Height="25" IsEditable="True" IsReadOnly="True" SelectionChanged="cbType_SelectionChanged"/>
+                        <ComboBox Name="cbType" Width="200" Height="30" IsEditable="True" IsReadOnly="True" SelectionChanged="cbType_SelectionChanged"/>
                     </StackPanel>
                     <CheckBox Name="chbActual" HorizontalAlignment="Right" Checked="chbActual_Checked" Unchecked="chbActual_Checked">только актуальные туры</CheckBox>
                 </StackPanel>
@@ -36,7 +33,7 @@
                         Сортировать по <LineBreak/>
                         стоимости тура
                         </TextBlock>
-                        <ComboBox Name="cbSort" Width="200" Height="25" IsEditable="True" IsReadOnly="True" SelectionChanged="cbType_SelectionChanged">
+                        <ComboBox Name="cbSort" Width="200" Height="30" IsEditable="True" IsReadOnly="True" SelectionChanged="cbType_SelectionChanged">
                             <ComboBoxItem>Возрастанию</ComboBoxItem>
                             <ComboBoxItem>Убыванию</ComboBoxItem>
                         </ComboBox>
@@ -55,7 +52,7 @@
                     <Border BorderBrush="Black" BorderThickness="1">
                         <StackPanel Margin="10" Width="300" VerticalAlignment="Bottom">
                             <TextBlock HorizontalAlignment="Center" FontSize="20" Text="{Binding Name}" TextWrapping="Wrap" TextAlignment="Center"/>
-                            <Image Height="150" Source="{Binding ImagePreview, TargetNullValue={StaticResource noImage}}" Margin="0,10,0,10"/>
+                            <Image Height="150" Source="{Binding Photos}" Margin="0,10,0,10"/>
                             <TextBlock Text="{Binding PriceRub}" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20"/>
                             <DockPanel Margin="0,10,0,0">
                                 <TextBlock Text="{Binding ActualString}" HorizontalAlignment="Left" Foreground="{Binding ActualColor}"/>
@@ -66,7 +63,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-       
-        <Button Grid.Row="2" Name="btnHotels" Click="btnHotels_Click" Content="Таблица отелей" Width="200" Height="40"/>
+        <Button Grid.Row="2" Name="btnHotels" Click="btnHotels_Click" Width="200" Height="40" Template="{StaticResource btnTempate}" Content="Таблица отелей" Cursor="Hand"/>
+        <TextBlock VerticalAlignment="Center" Name="txtEmpty" Text="Записи не найдены" FontSize="40" Grid.Row="1" HorizontalAlignment="Center" Visibility="Collapsed"/>
     </Grid>
 </Page>

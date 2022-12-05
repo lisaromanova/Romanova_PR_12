@@ -12,11 +12,20 @@
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="FontSize" Value="16"/>
         </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
         <Style TargetType="TextBlock" x:Key="txtPage">
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Margin" Value="0,0,5,0"/>
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="FontSize" Value="22"/>
         </Style>
+        <ControlTemplate TargetType="Button" x:Key="btnTempate">
+            <Border BorderThickness="2" BorderBrush="Black" CornerRadius="20">
+                <ContentControl Content="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Comic Sans MS"/>
+            </Border>
+        </ControlTemplate>
     </Application.Resources>
 </Application>

@@ -24,7 +24,6 @@ namespace MDK_01_01_PR_12.Pages
         public ToursPage()
         {
             InitializeComponent();
-            //lstTours.ItemsSource = DataBase.connect.Tour.ToList();
             cbType.Items.Add("Все типы");
             List<Type> types = DataBase.connect.Type.ToList();
             foreach(Type type in types)
@@ -62,13 +61,25 @@ namespace MDK_01_01_PR_12.Pages
                         break;
                 }
             }
-            lstTours.ItemsSource = tours;
-            double sum = 0;
-            foreach(Tour tour in tours)
+            if(tours.Count > 0)
             {
-                sum += Convert.ToDouble(tour.Price) * tour.TicketCount;
+                lstTours.Visibility = Visibility.Visible;
+                txtEmpty.Visibility = Visibility.Collapsed;
+                tbCount.Visibility = Visibility.Visible;
+                lstTours.ItemsSource = tours;
+                double sum = 0;
+                foreach (Tour tour in tours)
+                {
+                    sum += Convert.ToDouble(tour.Price) * tour.TicketCount;
+                }
+                tbCount.Text = "Общая стоимость: " + sum.ToString();
             }
-            tbCount.Text = "Общая стоимость: " + sum.ToString();
+            else
+            {
+                lstTours.Visibility = Visibility.Collapsed;
+                txtEmpty.Visibility = Visibility.Visible;
+                tbCount.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void cbType_SelectionChanged(object sender, SelectionChangedEventArgs e)
