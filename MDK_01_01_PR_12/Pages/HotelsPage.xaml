@@ -14,7 +14,7 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <ListView Name="lstHotels" Grid.Row="1" SelectionMode="Multiple" Background="#bae3e8">
+        <ListView Foreground="Black" Name="lstHotels" Grid.Row="1" SelectionMode="Multiple" Background="#bae3e8">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Name}">Название</GridViewColumn>
