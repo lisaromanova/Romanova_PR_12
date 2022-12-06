@@ -21,9 +21,10 @@
             <Setter Property="Margin" Value="0,0,5,0"/>
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="FontSize" Value="22"/>
+            <Setter Property="Foreground" Value="White"/>
         </Style>
         <ControlTemplate TargetType="Button" x:Key="btnTempate">
-            <Border BorderThickness="2" BorderBrush="Black" CornerRadius="20">
+            <Border BorderThickness="2" BorderBrush="Black" CornerRadius="20" Background="{TemplateBinding Background}">
                 <ContentControl Content="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Comic Sans MS"/>
             </Border>
         </ControlTemplate>

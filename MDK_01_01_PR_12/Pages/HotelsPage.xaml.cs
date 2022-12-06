@@ -99,8 +99,9 @@ namespace MDK_01_01_PR_12.Pages
                     MessageBoxResult msg = MessageBox.Show($"Вы точно хотите удалить отель {hotel.Name}?", "Удаление отеля", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (msg == MessageBoxResult.Yes)
                     {
-                        int count = hotel.ToursHotel;
-                        if (count == 0)
+                        List<HotelOfTour> list = DataBase.connect.HotelOfTour.Where(x=> x.HotelId==hotel.Id).ToList();
+                        HotelOfTour tour = list.FirstOrDefault(x => x.Tour.IsActual == true);
+                        if (tour==null)
                         {
                             DataBase.connect.Hotel.Remove(hotel);
                         }

@@ -14,7 +14,7 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <ListView Name="lstHotels" Grid.Row="1" SelectionMode="Multiple">
+        <ListView Name="lstHotels" Grid.Row="1" SelectionMode="Multiple" Background="#bae3e8">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Name}">Название</GridViewColumn>
@@ -24,14 +24,14 @@
                     <GridViewColumn>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Name="btnUpdate" Uid="{Binding Id}" Content="Изменить" Margin="5" Width="100" Height="30" Background="White" Template="{StaticResource btnTempate}" Cursor="Hand" Click="btnUpdate_Click"/>
+                                <Button Name="btnUpdate" Uid="{Binding Id}" Content="Изменить" Margin="5" Width="100" Height="30" Template="{StaticResource btnTempate}" Background="White"  Cursor="Hand" Click="btnUpdate_Click"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Grid.Row="2" Width="130" Height="40" Name="btnBack" Content="Вернуться" HorizontalAlignment="Left" Click="btnBack_Click" Template="{StaticResource btnTempate}" Cursor="Hand"/>
+        <Button Grid.Row="2" Width="130" Height="40" Name="btnBack" Content="Вернуться" HorizontalAlignment="Left" Click="btnBack_Click" Template="{StaticResource btnTempate}" Cursor="Hand" Background=" #fac716"/>
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Center">
             <TextBlock Style="{StaticResource txtPage}" Uid="first" Text="&lt;|" MouseDown="Page_MouseDown" Cursor="Hand"/>
             <TextBlock Style="{StaticResource txtPage}" Uid="back" Text="&lt;" MouseDown="Page_MouseDown"/>
@@ -44,13 +44,13 @@
             <TextBlock Style="{StaticResource txtPage}" Uid="last" Text="|&gt;" MouseDown="Page_MouseDown"/>
         </StackPanel>
         <StackPanel VerticalAlignment="Center" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
-            <TextBlock Margin="0,0,15,0">
+            <TextBlock Margin="0,0,15,0" Foreground="White">
                 Количество записей<LineBreak/>
                 на странице:
             </TextBlock>
             <TextBox Name="tbPages" Width="100" Height="30" TextChanged="tbPages_TextChanged"/>
         </StackPanel>
-        <Button Grid.Row="0" Width="170" Height="40" Name="btnAdd" Content="Добавить отель" HorizontalAlignment="Left" Click="btnAdd_Click" Template="{StaticResource btnTempate}" Cursor="Hand"/>
-        <Button Grid.Row="0" Width="250" Height="40" Name="btnDelete" Content="Удалить выбранные отели" HorizontalAlignment="Right" Click="btnDelete_Click" Template="{StaticResource btnTempate}" Cursor="Hand"/>
+        <Button Grid.Row="0" Width="170" Height="40" Name="btnAdd" Content="Добавить отель" HorizontalAlignment="Left" Click="btnAdd_Click" Template="{StaticResource btnTempate}" Cursor="Hand" Background=" #fac716"/>
+        <Button Grid.Row="0" Width="250" Height="40" Name="btnDelete" Content="Удалить выбранные отели" HorizontalAlignment="Right" Click="btnDelete_Click" Template="{StaticResource btnTempate}" Cursor="Hand" Background=" #fac716"/>
     </Grid>
 </Page>
