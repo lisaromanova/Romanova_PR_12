@@ -63,7 +63,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Grid.Row="2" Name="btnHotels" Click="btnHotels_Click" Width="200" Height="40" Template="{StaticResource btnTempate}" Content="Таблица отелей" Cursor="Hand" Background=" #fac716"/>
+        <Button Grid.Row="2" Name="btnHotels" Click="btnHotels_Click" Width="200" Height="40" Template="{StaticResource btnTempate}" Content="Таблица отелей" Cursor="Hand" Background="#fac716"/>
         <TextBlock VerticalAlignment="Center" Name="txtEmpty" Text="Записи не найдены" FontSize="40" Grid.Row="1" HorizontalAlignment="Center" Visibility="Collapsed" Foreground="White"/>
     </Grid>
 </Page>
